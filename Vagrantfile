@@ -22,6 +22,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.log_level = :debug
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+    chef.install = 'force'
+    chef.version = '11.18.6'
 
     chef.add_recipe "timezone-ii"
     chef.add_recipe "apt"
